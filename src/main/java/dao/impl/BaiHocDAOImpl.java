@@ -58,6 +58,8 @@ public class BaiHocDAOImpl implements BaiHocDAO {
 					.setParameter("tenBaiHoc", tenBaiHoc).setParameter("ngayCapNhat", ngayCapNhat)
 					.setParameter("wordSource", wordSource).setParameter("slideSource", slideSource)
 					.setParameter("btSource", btSource).setParameter("videoSource", videoSource).executeUpdate();
+			session.createQuery("update HocLieu set update_at=:ngayCapNhat where id=:id").setParameter("id", idHocLieu)
+					.setParameter("ngayCapNhat", ngayCapNhat).executeUpdate();
 			session.getTransaction().commit();
 			return true;
 		} catch (Exception e) {

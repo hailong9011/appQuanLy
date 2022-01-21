@@ -43,6 +43,23 @@ public class BaiHocService {
 				videoSource);
 	}
 
+	public Map<String, Object> checkUpdateBaiHoc(String tenBaiHoc, Long idHocLieu) {
+		Map<String, Object> map = new HashMap<>();
+		BaiHocDAOImpl bhDao = new BaiHocDAOImpl();
+		List<BaiHoc> listBaiHoc = bhDao.getBaiHocList(idHocLieu);
+		for (int i = 0; i < listBaiHoc.size(); i++) {
+			if (tenBaiHoc.equalsIgnoreCase(listBaiHoc.get(i).getTenBai())) {
+				map.put("msg", "Tên bài học này đã tồn tại !");
+				map.put("status", false);
+				break;
+			} else {
+				map.put("msg", "Cập nhật thành công !");
+				map.put("status", true);
+			}
+		}
+		return map;
+	}
+
 	public boolean deleteBaiHoc(Long id, String tenBai) {
 		BaiHocDAOImpl bhDao = new BaiHocDAOImpl();
 		return bhDao.deleteBaiHoc(id, tenBai);

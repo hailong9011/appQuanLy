@@ -243,7 +243,7 @@ public class QuanLyHocLieu extends JPanel {
 								hocLieu.setHocLieu(hocLieuField.getText());
 								hocLieu.setNgayTao(LocalDate.now());
 								hocLieu.setNguoiThem(user.getEmail());
-								Map<String, Object> dataHL = hocLieuService.checkAddBaiHoc(hocLieu);
+								Map<String, Object> dataHL = hocLieuService.checkAddHocLieu(hocLieu);
 								if ((boolean) dataHL.get("status")) {
 									hocLieuService.addHocLieu(hocLieu);
 									baiHoc.setTenBai(baiHocField.getText());

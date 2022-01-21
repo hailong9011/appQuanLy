@@ -97,13 +97,8 @@ public class TrangChinh extends JFrame {
 		panelManage.setBackground(new Color(100, 149, 237));
 		panelManage.setLayout(null);
 
-		JPanel panelUserManage = new JPanel();
-		panelUserManage.setBounds(11, 287, 265, 83);
-		panelUserManage.setBackground(new Color(100, 149, 237));
-		panelUserManage.setLayout(null);
-
 		JPanel panelStatistical = new JPanel();
-		panelStatistical.setBounds(11, 380, 265, 83);
+		panelStatistical.setBounds(11, 473, 265, 83);
 		panelStatistical.setBackground(new Color(100, 149, 237));
 		panelStatistical.setLayout(null);
 
@@ -140,36 +135,9 @@ public class TrangChinh extends JFrame {
 		panelMenu.setLayout(null);
 		panelMenu.add(panelHome);
 		panelMenu.add(panelManage);
-		panelMenu.add(panelUserManage);
 		panelMenu.add(panelStatistical);
 		panelMenu.add(panelApp);
 		mainPanel.setLayout(gl_mainPanel);
-
-		TabViewAdmin chuyenTab = new TabViewAdmin(panelView, user);
-		chuyenTab.addView(panelHome);
-		List<TabSelect> listItem = new ArrayList<>();
-		listItem.add(new TabSelect("TrangChu", panelHome));
-		listItem.add(new TabSelect("QuanLyHocLieu", panelManage));
-		listItem.add(new TabSelect("QuanLyNguoiDung", panelUserManage));
-		listItem.add(new TabSelect("ThongKe", panelStatistical));
-
-		JLabel lblNewLabel_1_2 = new JLabel("Qu\u1EA3n L\u00FD H\u1ECDc Li\u1EC7u");
-		lblNewLabel_1_2.setBounds(0, 0, 265, 83);
-		panelManage.add(lblNewLabel_1_2);
-		lblNewLabel_1_2.setIcon(new ImageIcon(
-				"C:\\Users\\hailo\\eclipse-workspace\\QuanLyHocLieu\\Image\\2x\\outline_menu_book_black_24dp.png"));
-		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_2.setForeground(Color.WHITE);
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 18));
-
-		JLabel lblNewLabel_1_3 = new JLabel("Qu\u1EA3n L\u00FD Ng\u01B0\u1EDDi D\u00F9ng");
-		lblNewLabel_1_3.setBounds(0, 0, 265, 83);
-		panelUserManage.add(lblNewLabel_1_3);
-		lblNewLabel_1_3.setIcon(new ImageIcon(
-				"C:\\Users\\hailo\\eclipse-workspace\\QuanLyHocLieu\\Image\\2x\\outline_manage_accounts_black_24dp.png"));
-		lblNewLabel_1_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_3.setForeground(Color.WHITE);
-		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.BOLD, 18));
 
 		JLabel lblNewLabel_1_4 = new JLabel("Th\u1ED1ng K\u00EA Chi Ti\u1EBFt");
 		lblNewLabel_1_4.setBounds(0, 0, 265, 83);
@@ -179,7 +147,15 @@ public class TrangChinh extends JFrame {
 		lblNewLabel_1_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_4.setForeground(Color.WHITE);
 		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.BOLD, 18));
-		chuyenTab.addEvent(listItem);
+
+		JLabel lblNewLabel_1_2 = new JLabel("Qu\u1EA3n L\u00FD H\u1ECDc Li\u1EC7u");
+		lblNewLabel_1_2.setBounds(0, 0, 265, 83);
+		panelManage.add(lblNewLabel_1_2);
+		lblNewLabel_1_2.setIcon(new ImageIcon(
+				"C:\\Users\\hailo\\eclipse-workspace\\QuanLyHocLieu\\Image\\2x\\outline_menu_book_black_24dp.png"));
+		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_2.setForeground(Color.WHITE);
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 18));
 
 		JLabel lblSignOut = new JLabel("\u0110\u0103ng Xu\u1EA5t");
 		lblSignOut.addMouseListener(new MouseAdapter() {
@@ -212,5 +188,45 @@ public class TrangChinh extends JFrame {
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblNewLabel_3.setBounds(11, 598, 264, 39);
 		panelMenu.add(lblNewLabel_3);
+
+		JPanel panelLectureManage = new JPanel();
+		panelLectureManage.setLayout(null);
+		panelLectureManage.setBackground(new Color(100, 149, 237));
+		panelLectureManage.setBounds(11, 287, 265, 83);
+		panelMenu.add(panelLectureManage);
+
+		JLabel lblNewLabel_1_3 = new JLabel("Quản Lý Giảng Viên");
+		lblNewLabel_1_3.setBounds(0, 0, 265, 83);
+		panelLectureManage.add(lblNewLabel_1_3);
+		lblNewLabel_1_3.setIcon(new ImageIcon(
+				"C:\\Users\\hailo\\eclipse-workspace\\QuanLyHocLieu\\Image\\2x\\outline_manage_accounts_black_24dp.png"));
+		lblNewLabel_1_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_3.setForeground(Color.WHITE);
+		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.BOLD, 18));
+
+		JPanel panelUserManage = new JPanel();
+		panelUserManage.setBounds(11, 380, 265, 83);
+		panelMenu.add(panelUserManage);
+		panelUserManage.setBackground(new Color(100, 149, 237));
+		panelUserManage.setLayout(null);
+
+		JLabel lblNewLabel_1_3_1 = new JLabel("Quản Lý Người Dùng");
+		lblNewLabel_1_3_1.setIcon(new ImageIcon(
+				"C:\\Users\\hailo\\eclipse-workspace\\appQuanLyHocLieu\\Image\\2x\\outline_people_alt_black_24dp.png"));
+		lblNewLabel_1_3_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_3_1.setForeground(Color.WHITE);
+		lblNewLabel_1_3_1.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel_1_3_1.setBounds(0, 0, 265, 83);
+		panelUserManage.add(lblNewLabel_1_3_1);
+
+		TabViewAdmin chuyenTab = new TabViewAdmin(panelView, user);
+		chuyenTab.addView(panelHome);
+		List<TabSelect> listItem = new ArrayList<>();
+		listItem.add(new TabSelect("TrangChu", panelHome));
+		listItem.add(new TabSelect("QuanLyHocLieu", panelManage));
+		listItem.add(new TabSelect("ThongKe", panelStatistical));
+		listItem.add(new TabSelect("QuanLyNguoiDung", panelUserManage));
+		listItem.add(new TabSelect("QuanLyGiangVien", panelLectureManage));
+		chuyenTab.addEvent(listItem);
 	}
 }

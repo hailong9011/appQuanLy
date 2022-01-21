@@ -135,4 +135,40 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return null;
 	}
+
+	@Override
+	public List<User> getListLecture() {
+		Session session = HibernateUtils.getSessionFactory().openSession();
+		try {
+			session.beginTransaction();
+			List<User> listUser = session.createQuery("from User where role =: role").setParameter("role", "Giảng viên")
+					.list();
+			session.getTransaction().commit();
+			return listUser;
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		} finally {
+			session.close();
+		}
+		return null;
+	}
+
+	@Override
+	public List<User> getListStudent() {
+		Session session = HibernateUtils.getSessionFactory().openSession();
+		try {
+			session.beginTransaction();
+			List<User> listUser = session.createQuery("from User where role =: role").setParameter("role", "Người dùng")
+					.list();
+			session.getTransaction().commit();
+			return listUser;
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		} finally {
+			session.close();
+		}
+		return null;
+	}
 }

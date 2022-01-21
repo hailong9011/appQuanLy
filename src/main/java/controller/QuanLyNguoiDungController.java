@@ -32,6 +32,7 @@ import service.UserService;
 public class QuanLyNguoiDungController {
 	private JPanel jPanelView;
 	private JTextField jTextFieldSearch;
+	private String userRole;
 
 	static int selectedRowIndex;
 
@@ -43,16 +44,24 @@ public class QuanLyNguoiDungController {
 
 	private TableRowSorter<TableModel> rowSorter = null;
 
-	public QuanLyNguoiDungController(JPanel jPanelView, JTextField jTextFieldSearch) {
+	public QuanLyNguoiDungController(JPanel jPanelView, JTextField jTextFieldSearch, String userRole) {
 		super();
 		this.jPanelView = jPanelView;
+		this.userRole = userRole;
 		this.jTextFieldSearch = jTextFieldSearch;
 		this.tableModel = new TableModelCustom();
 		this.userService = new UserService();
 	}
 
 	public void setDataToTable() {
-		List<User> listItem = userService.getUserList();
+		List<User> listItem = null;
+		if (userRole.equals("Giảng viên")) {
+			listItem = userService.getLectureList();
+		}
+		;
+		if (userRole.equals("Người dùng")) {
+			listItem = userService.getStudenList();
+		}
 		DefaultTableModel model = tableModel.setTableUser(listItem, COLUMNS);
 		JTable table = new JTable(model);
 
@@ -120,6 +129,7 @@ public class QuanLyNguoiDungController {
 					selectedRowIndex = table.getSelectedRow();
 
 					selectedRowIndex = table.convertRowIndexToModel(selectedRowIndex);
+					
 					String email = model.getValueAt(selectedRowIndex, 0).toString();
 					User user = userService.getUser(email);
 

@@ -10,11 +10,11 @@ import javax.swing.JPanel;
 
 import entity.TabSelect;
 import entity.User;
+import viewsAdmin.QuanLyGiangVien;
 import viewsAdmin.QuanLyHocLieu;
 import viewsAdmin.QuanLyNguoiDung;
 import viewsAdmin.ThongKe;
 import viewsAdmin.TrangChu;
-import viewsUser.ThongTinTaiKhoanUser;
 
 public class TabViewAdmin {
 	private JPanel root;
@@ -61,9 +61,6 @@ public class TabViewAdmin {
 			case "TrangChu":
 				panel = new TrangChu();
 				break;
-			case "ThongTinTaiKhoan":
-				panel = new ThongTinTaiKhoanUser();
-				break;
 			case "QuanLyHocLieu":
 				panel = new QuanLyHocLieu(user);
 				break;
@@ -72,6 +69,9 @@ public class TabViewAdmin {
 				break;
 			case "ThongKe":
 				panel = new ThongKe();
+				break;
+			case "QuanLyGiangVien":
+				panel = new QuanLyGiangVien();
 				break;
 			default:
 				break;

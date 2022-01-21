@@ -137,12 +137,11 @@ public class DangKy extends JFrame {
 					JOptionPane.showMessageDialog(rootPane, "Username không được để trống !");
 				} else if (password.length() == 0) {
 					JOptionPane.showMessageDialog(rootPane, "Mật khẩu không được để trống !");
-
 				} else if (password.length() < 6) {
 					JOptionPane.showMessageDialog(rootPane, "Mật khẩu tối thiểu 6 kí tự !");
 				} else if (cfPassword.length() == 0) {
 					JOptionPane.showMessageDialog(rootPane, "Vui lòng xác nhận mật khẩu !");
-				} else if (cfPassword == password) {
+				} else if (!cfPassword.equals(password)) {
 					JOptionPane.showMessageDialog(rootPane, "Mật khẩu không khớp !");
 				} else {
 					user.setEmail(email);

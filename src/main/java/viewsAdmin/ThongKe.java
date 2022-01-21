@@ -26,7 +26,7 @@ public class ThongKe extends JPanel {
 		add(barChartLecture);
 
 		ThongKeController controller = new ThongKeController();
-		controller.setDataToLectureChart(barChartLecture);
 		controller.setDataToHocLieuChart(barChartHocLieu);
+		controller.setDataToLectureChart(barChartLecture);
 	}
 }

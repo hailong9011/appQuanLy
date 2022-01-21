@@ -3,7 +3,6 @@ package dao.impl;
 import java.util.List;
 
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 
 import dao.ThongKeDAO;
 import entity.ThongKeBaiHocTheoHocLieu;

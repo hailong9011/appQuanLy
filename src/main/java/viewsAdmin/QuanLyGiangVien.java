@@ -1,17 +1,17 @@
 package viewsAdmin;
 
-import javax.swing.JPanel;
-
-import controller.QuanLyNguoiDungController;
-
 import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class QuanLyNguoiDung extends JPanel {
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import controller.QuanLyNguoiDungController;
+
+public class QuanLyGiangVien extends JPanel {
 	/**
 	 * 
 	 */
@@ -20,7 +20,7 @@ public class QuanLyNguoiDung extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public QuanLyNguoiDung() {
+	public QuanLyGiangVien() {
 		setBackground(Color.WHITE);
 		setLayout(null);
 
@@ -38,7 +38,7 @@ public class QuanLyNguoiDung extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				QuanLyNguoiDungController controller = new QuanLyNguoiDungController(jPanelView, jTextFieldSearch,
-						"Người dùng");
+						"Giảng viên");
 				controller.setDataToTable();
 			}
 		});
@@ -48,7 +48,8 @@ public class QuanLyNguoiDung extends JPanel {
 		add(lblRenew);
 
 		QuanLyNguoiDungController controller = new QuanLyNguoiDungController(jPanelView, jTextFieldSearch,
-				"Người dùng");
+				"Giảng viên");
 		controller.setDataToTable();
 	}
+
 }

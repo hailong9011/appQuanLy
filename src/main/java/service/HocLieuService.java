@@ -19,7 +19,7 @@ public class HocLieuService {
 		return hlDao.addHocLieu(hocLieu);
 	}
 
-	public Map<String, Object> checkAddBaiHoc(HocLieu hocLieu) {
+	public Map<String, Object> checkAddHocLieu(HocLieu hocLieu) {
 		Map<String, Object> map = new HashMap<>();
 		HocLieuDAOImpl hlDao = new HocLieuDAOImpl();
 		List<HocLieu> listHocLieu = hlDao.getHocLieuList();
@@ -36,9 +36,26 @@ public class HocLieuService {
 		return map;
 	}
 
-	public HocLieu getHocLieu(String tenHocLieu) {
+	public boolean updateHocLieu(Long id, String tenHocLieu, LocalDate ngayCapNhat) {
 		HocLieuDAOImpl hlDao = new HocLieuDAOImpl();
-		return hlDao.getHocLieu(tenHocLieu);
+		return hlDao.updateHocLieu(id, tenHocLieu, ngayCapNhat);
+	}
+
+	public Map<String, Object> checkUpdateHocLieu(String tenHocLieu) {
+		Map<String, Object> map = new HashMap<>();
+		HocLieuDAOImpl hlDao = new HocLieuDAOImpl();
+		List<HocLieu> listHocLieu = hlDao.getHocLieuList();
+		for (int i = 0; i < listHocLieu.size(); i++) {
+			if (tenHocLieu.equalsIgnoreCase(listHocLieu.get(i).getHocLieu())) {
+				map.put("msg", "Tên học liệu này đã tồn tại !");
+				map.put("status", false);
+				break;
+			} else {
+				map.put("msg", "Cập nhật thành công !");
+				map.put("status", true);
+			}
+		}
+		return map;
 	}
 
 	public boolean deleteHocLieu(Long id) {
@@ -46,9 +63,9 @@ public class HocLieuService {
 		return hlDao.deleteHocLieu(id);
 	}
 
-	public boolean updateHocLieu(Long id, String tenHocLieu, LocalDate ngayCapNhat) {
+	public HocLieu getHocLieu(String tenHocLieu) {
 		HocLieuDAOImpl hlDao = new HocLieuDAOImpl();
-		return hlDao.updateHocLieu(id, tenHocLieu, ngayCapNhat);
+		return hlDao.getHocLieu(tenHocLieu);
 	}
 
 	public Long thongKeHocLieu() {

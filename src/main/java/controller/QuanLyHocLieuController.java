@@ -56,7 +56,7 @@ public class QuanLyHocLieuController {
 
 	private TableModelCustom tableModel = null;
 
-	private final String[] COLUMNS = { "Tên học liệu", "Ngày tạo", "Ngày cập nhật", "Người thêm" };
+	private String[] COLUMNS;
 
 	private HocLieuService hocLieuService = null;
 
@@ -76,8 +76,10 @@ public class QuanLyHocLieuController {
 		List<HocLieu> listItem = null;
 		if (user.getRole().equals("Admin")) {
 			listItem = hocLieuService.getHocLieuList();
+			COLUMNS = new String[] { "Tên học liệu", "Ngày tạo", "Ngày cập nhật", "Người thêm" };
 		} else {
 			listItem = hocLieuService.getListHocLieuByLecture(user.getEmail());
+			COLUMNS = new String[] { "Tên học liệu", "Ngày tạo", "Ngày cập nhật" };
 		}
 		DefaultTableModel model = tableModel.setTableHocLieu(listItem, COLUMNS);
 		JTable table = new JTable(model);
@@ -461,11 +463,17 @@ public class QuanLyHocLieuController {
 										JOptionPane.showMessageDialog(null, "Tên học liệu không được để trống !");
 									} else {
 										HocLieuService hocLieuService = new HocLieuService();
-										if (hocLieuService.updateHocLieu(hocLieu.getId(), textHocLieu.getText(),
-												LocalDate.now())) {
-											JOptionPane.showMessageDialog(null, "Cập nhật thành công !");
+										Map<String, Object> data = hocLieuService
+												.checkUpdateHocLieu(textHocLieu.getText());
+										if ((boolean) data.get("status")) {
+											if (hocLieuService.updateHocLieu(hocLieu.getId(), textHocLieu.getText(),
+													LocalDate.now())) {
+												JOptionPane.showMessageDialog(null, data.get("msg"));
+											} else {
+												JOptionPane.showMessageDialog(null, "Cập nhật thất bại !");
+											}
 										} else {
-											JOptionPane.showMessageDialog(null, "Cập nhật thất bại !");
+											JOptionPane.showMessageDialog(null, data.get("msg"));
 										}
 									}
 								}

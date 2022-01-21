@@ -6,12 +6,15 @@ public class TabSelect {
 	private String panel;
 	private JPanel jPanel;
 
-	public String getPanel() {
-		return panel;
+	public TabSelect() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setPanel(String panel) {
+	public TabSelect(String panel, JPanel jPanel) {
+		super();
 		this.panel = panel;
+		this.jPanel = jPanel;
 	}
 
 	public JPanel getjPanel() {
@@ -22,15 +25,12 @@ public class TabSelect {
 		this.jPanel = jPanel;
 	}
 
-	public TabSelect(String panel, JPanel jPanel) {
-		super();
-		this.panel = panel;
-		this.jPanel = jPanel;
+	public String getPanel() {
+		return panel;
 	}
 
-	public TabSelect() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setPanel(String panel) {
+		this.panel = panel;
 	}
 
 }

@@ -10,36 +10,6 @@ import dao.impl.UserDAOImpl;
 import entity.User;
 
 public class UserService {
-	public Map<String, Object> login(String email, String password) {
-		Map<String, Object> map = new HashMap<>();
-		UserDAOImpl userDao = new UserDAOImpl();
-		User user = userDao.login(email, password);
-		if (user != null) {
-			if (BCrypt.checkpw(password, user.getPassWord())) {
-				map.put("isLogin", true);
-				map.put("role",user.getRole());
-			} else {
-				map.put("msg", "Sai mật khẩu !");
-				map.put("isLogin", false);
-			}
-			;
-		} else {
-			map.put("msg", "Tài khoản không tồn tại !");
-			map.put("isLogin", false);
-		}
-		return map;
-	}
-
-	public List<User> getUserList() {
-		UserDAOImpl userDao = new UserDAOImpl();
-		return userDao.getListUser();
-	}
-
-	public User getUser(String email) {
-		UserDAOImpl userDao = new UserDAOImpl();
-		return userDao.getUser(email);
-	}
-
 	public Map<String, Object> checkRegistry(User user, String email) {
 		Map<String, Object> map = new HashMap<>();
 		UserDAOImpl userDao = new UserDAOImpl();
@@ -62,9 +32,24 @@ public class UserService {
 		return userDao.registry(user);
 	}
 
-	public boolean setRoleUser(String email, String role) {
+	public Map<String, Object> login(String email, String password) {
+		Map<String, Object> map = new HashMap<>();
 		UserDAOImpl userDao = new UserDAOImpl();
-		return userDao.setRoleUser(email, role);
+		User user = userDao.login(email, password);
+		if (user != null) {
+			if (BCrypt.checkpw(password, user.getPassWord())) {
+				map.put("isLogin", true);
+				map.put("role", user.getRole());
+			} else {
+				map.put("msg", "Sai mật khẩu !");
+				map.put("isLogin", false);
+			}
+			;
+		} else {
+			map.put("msg", "Tài khoản không tồn tại !");
+			map.put("isLogin", false);
+		}
+		return map;
 	}
 
 	public Map<String, Object> checkResetPassword(String email, String password) {
@@ -86,9 +71,35 @@ public class UserService {
 		return userDao.resetPassword(email, password);
 	}
 
+	public User getUser(String email) {
+		UserDAOImpl userDao = new UserDAOImpl();
+		return userDao.getUser(email);
+	}
+
+	public boolean setRoleUser(String email, String role) {
+		UserDAOImpl userDao = new UserDAOImpl();
+		return userDao.setRoleUser(email, role);
+	}
+
 	public Long thongKeUser() {
 		UserDAOImpl userDao = new UserDAOImpl();
 		Long tongUser = userDao.thongKeUser();
 		return tongUser;
 	}
+
+	public List<User> getUserList() {
+		UserDAOImpl userDao = new UserDAOImpl();
+		return userDao.getListUser();
+	}
+
+	public List<User> getLectureList() {
+		UserDAOImpl userDao = new UserDAOImpl();
+		return userDao.getListLecture();
+	}
+
+	public List<User> getStudenList() {
+		UserDAOImpl userDao = new UserDAOImpl();
+		return userDao.getListStudent();
+	}
+
 }

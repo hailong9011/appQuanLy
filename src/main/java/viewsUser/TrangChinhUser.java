@@ -92,11 +92,6 @@ public class TrangChinhUser extends JFrame {
 		lblNewLabel_1.setBounds(0, 0, 265, 83);
 		panelHome.add(lblNewLabel_1);
 
-		JPanel panelInfo = new JPanel();
-		panelInfo.setBounds(11, 194, 265, 83);
-		panelInfo.setBackground(new Color(100, 149, 237));
-		panelInfo.setLayout(null);
-
 		JPanel panelView = new JPanel();
 		panelView.setBackground(Color.WHITE);
 		panelView.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -129,7 +124,6 @@ public class TrangChinhUser extends JFrame {
 		panelView.setLayout(null);
 		panelMenu.setLayout(null);
 		panelMenu.add(panelHome);
-		panelMenu.add(panelInfo);
 		panelMenu.add(panelApp);
 		mainPanel.setLayout(gl_mainPanel);
 
@@ -138,17 +132,7 @@ public class TrangChinhUser extends JFrame {
 
 		List<TabSelect> listItem = new ArrayList<>();
 		listItem.add(new TabSelect("TrangChuUser", panelHome));
-		listItem.add(new TabSelect("ThongTinTaiKhoanUser", panelInfo));
 		chuyenTab.addEvent(listItem);
-
-		JLabel lblNewLabel_1_2 = new JLabel("Thông Tin Tài Khoản");
-		lblNewLabel_1_2.setBounds(0, 0, 265, 83);
-		panelInfo.add(lblNewLabel_1_2);
-		lblNewLabel_1_2.setIcon(new ImageIcon(
-				"C:\\Users\\hailo\\eclipse-workspace\\QuanLyHocLieu\\Image\\2x\\outline_people_alt_black_24dp.png"));
-		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_2.setForeground(Color.WHITE);
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 18));
 
 		JLabel lblSignOut = new JLabel("\u0110\u0103ng Xu\u1EA5t");
 		lblSignOut.addMouseListener(new MouseAdapter() {

@@ -59,8 +59,10 @@ public class TableModelCustom {
 			obj[0] = hocLieu.getHocLieu();
 			obj[1] = hocLieu.getNgayTao();
 			obj[2] = hocLieu.getNgayCapNhat();
-			User user = userService.getUser(hocLieu.getNguoiThem());
-			obj[3] = user.getUserName();
+			if (num == 4) {
+				User user = userService.getUser(hocLieu.getNguoiThem());
+				obj[3] = user.getUserName();
+			}
 			dtm.addRow(obj);
 		}
 		return dtm;

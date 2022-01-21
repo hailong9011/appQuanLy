@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 
 import entity.TabSelect;
 import viewsUser.TrangChuUser;
-import viewsUser.ThongTinTaiKhoanUser;
 
 public class TabViewUser {
 	private JPanel root;
@@ -54,9 +53,6 @@ public class TabViewUser {
 			switch (onClick) {
 			case "TrangChuUser":
 				panel = new TrangChuUser();
-				break;
-			case "ThongTinTaiKhoanUser":
-				panel = new ThongTinTaiKhoanUser();
 				break;
 			default:
 				break;
